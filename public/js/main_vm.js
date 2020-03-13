@@ -17,6 +17,11 @@ function showDisconnectMessage() {
     console.log('a user disconnected');
 }
 
+// function appendNickname(nickname) {
+//     vm.nicknames.push(nickname);
+// }
+
+
 function appendMessage(message) {
     vm.messages.push(message);
 }
@@ -42,11 +47,11 @@ const vm = new Vue({
                 content: this.message,
                 name: this.nickname || "anonymous"
             })
-
             this.message = "";
 
         }
     },
+
 
     mounted: function() {
         console.log('vue is done mounting');
@@ -55,9 +60,19 @@ const vm = new Vue({
     components: {
         newmessage: ChatMessage
     }
+    
 }).$mount("#app");
 
 
 socket.addEventListener('connected', setUserId);
 socket.addEventListener('disconnect', showDisconnectMessage);
 socket.addEventListener('new_message', appendMessage);
+
+
+const welcome     = document.querySelector('.welcome'),
+      goButton   = document.querySelector('.goButton');
+
+      goButton.addEventListener('click', function(){
+        
+            welcome.classList.add('hide');
+      });

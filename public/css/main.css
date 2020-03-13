@@ -8,13 +8,16 @@
   
   html, body {
     height: 100%;
+
+
   }
   
   body {
-    font: 16px Helvetica, Arial;
+    font-family: 'Press Start 2P', cursive;
   }
   
   main {
+    color: white;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -31,7 +34,7 @@
   
   .form-container {
     border: 6px solid #bfcfd6;
-    background-color: #b5c0f3;
+    background-color: #e60012;
   }
   
   .form-container label {
@@ -43,7 +46,7 @@
     -webkit-box-flex: 2;
         -ms-flex: 2;
             flex: 2;
-    background-color: #eee;
+    background-color: white;
     border: 6px solid #e2e0e0;
   }
   
@@ -52,7 +55,7 @@
     width: 100%;
     border: 2px solid #bfcfd6;
     border-radius: 4px;
-    font-size: 0.8rem;
+    font-size: 10px;
     padding: 0.4rem;
     border-style: solid;
   }
@@ -69,7 +72,7 @@
   form input[type=submit] {
     width: auto;
     padding: 10px;
-    background-color: #1411c8;
+    background-color: #e60012;
     margin-top: 1rem;
     border-radius: 8px;
     color: white;
@@ -97,6 +100,8 @@
     width: 45%;
     padding: 8px 12px;
     background-color: white;
+    border: 5px;
+    border-color: white;
     border-radius: 8px;
     margin-bottom: 1rem;
     float: left;
@@ -104,14 +109,62 @@
   }
   
   .new-message span {
-    font-size: 0.8rem;
+    font-size: 10px;
     display: block;
     margin-bottom: 2px;
   }
   
   .my-message {
     float: right !important;
-    background-color: #3c3fe4;
+    border: 5px;
+    border-color: white;
+    background-color: #e60012;
     color: white;
   }
+
+  .welcome{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    position: absolute;
+    background: #e60012;
+    color: white;
+  }
+
+  .lot{
+    font-family: 'Press Start 2P', cursive;
+    margin-top: 50px;
+  }
+
+  .nintendo{
+    margin: 0 auto;
+    margin-top: 200px;
+    width: 18%;
+    height: 12%;
+    background-image: url(../images/Nintendo.png);
+  }
+
+  .goButton{
+    margin-top: 50px;
+    width: 220px;
+    height: 50px;
+    font-size: 30px;
+    background-color: #e60012;
+    color: white;
+    border-color: white;
+    border-width: 7px;
+    border-radius: 30px;
+  }
+
+  .goButton:hover{
+    background: white;
+    color: #e60012;
+  }
+
+  .hide{
+    opacity: 0;
+    pointer-events: none;
+}
   /*# sourceMappingURL=main.css.map */

@@ -67,6 +67,14 @@ form {
 	li:nth-child(odd) { background: #eee; }
 }
 
+.welcome{
+	background: red;
+}
+
+.hide{
+	display: none;
+}
+
 // imports
 
 @import 'modules/_message.scss';

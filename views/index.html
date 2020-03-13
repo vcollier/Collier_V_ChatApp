@@ -3,13 +3,24 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Socket IO Chat with Node!</title>
+	<title>Nintendo Chat!</title>
 	<link rel="stylesheet" href="css/main.css">
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
 	<script src="https://unpkg.com/vue"></script>
 </head>
 
 <body>
 	<main id="app">
+		<div class="welcome">
+			<div class="nintendo"></div>
+			<div class="lot">
+
+				<h1>Welcome to Nintendo Chat!</h1>
+					
+					<button type="submit" class="goButton">Go Chat!</button>
+
+			</div>
+		</div>
 		<section class="messages">
 			<ul id="messages">
 				<!-- render a new message component for every message -->
@@ -18,7 +29,7 @@
 		</section>
 		<section class="form-container">
 			<label for="nickname">Your Nickname (optional)</label>
-			<input type="text" id="nickname" class="nickname" placeholder="What is your nickname?">
+			<input v-model="nickname" type="text" id="nickname" class="nickname" placeholder="What is your nickname?">
 
 			<form>
 				<label for="message">Something to say?</label>
