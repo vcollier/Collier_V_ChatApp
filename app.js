@@ -26,10 +26,7 @@ io.on('connection', function(socket) { // socket is your connection
     socket.emit('connected', {sID: socket.id, message: "new connection"});
 
     socket.on('chat_message', function(msg) {
-        console.log(msg); // let's see what the payload is from the client side
-        
-        // tell the connection manager (socket.io) to send this message to everyone
-        // anyone connected to our chat app will get this message (including the sender)
+        console.log(msg); 
         io.emit('new_message', { id: socket.id, message: msg})
     })
 

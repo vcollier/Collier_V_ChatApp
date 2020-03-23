@@ -3,46 +3,44 @@ import ChatMessage from "./modules/ChatMessage.js";
 
 const socket = io();
 
-//the packet is whatever data we send through with the connect event
-//from the server
-
-// this is data destructuring. Go look it up on MDN
 function setUserId({sID}) {
-    //debugger;
     console.log(sID);
     vm.socketID = sID;
 }
 
 function showDisconnectMessage() {
     console.log('a user disconnected');
+
 }
-
-// function appendNickname(nickname) {
-//     vm.nicknames.push(nickname);
-// }
-
 
 function appendMessage(message) {
     vm.messages.push(message);
+    document.querySelector('.message-audio').play();
 }
+
+function appendUser(user){
+    
+    vm.users.push(user);
+};
 
 const vm = new Vue({
     data: {
         socketID: "",
         message: "",
         nickname: "",
+        users: [],
         messages: []
     },
 
     methods: {
-        // emit a message event to the server so that it
-        // can in turn send this to anyone who's connected
+        characterEmoji(e){
+            let emoji = e.target.dataset.value;
+            this.message = this.message + emoji;
+        },
+
         disbatchMessage() {
             console.log('handle emit message');
 
-            // the double pipe || is an "or" operator
-            // if the first value is set, use it. else use
-            // whatever comes after the "or" operator
             socket.emit('chat_message', {
                 content: this.message,
                 name: this.nickname || "anonymous"
@@ -50,6 +48,7 @@ const vm = new Vue({
             this.message = "";
 
         }
+        
     },
 
 
@@ -67,6 +66,7 @@ const vm = new Vue({
 socket.addEventListener('connected', setUserId);
 socket.addEventListener('disconnect', showDisconnectMessage);
 socket.addEventListener('new_message', appendMessage);
+socket.addEventListener('newUser', appendUser);
 
 
 const welcome     = document.querySelector('.welcome'),
@@ -76,3 +76,4 @@ const welcome     = document.querySelector('.welcome'),
         
             welcome.classList.add('hide');
       });
+

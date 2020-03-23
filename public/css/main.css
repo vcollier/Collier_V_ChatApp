@@ -53,7 +53,7 @@
   input, textarea {
     display: block;
     width: 100%;
-    border: 2px solid #bfcfd6;
+    border: 2px solid white;
     border-radius: 4px;
     font-size: 10px;
     padding: 0.4rem;
@@ -99,7 +99,7 @@
   .new-message {
     width: 45%;
     padding: 8px 12px;
-    background-color: white;
+    background-color: rgb(68, 68, 68);
     border: 5px;
     border-color: white;
     border-radius: 8px;
@@ -166,5 +166,23 @@
   .hide{
     opacity: 0;
     pointer-events: none;
+}
+
+.emoji{
+  background-color: #e60012;
+  border: none;
+  font-size: 30px;
+}
+
+.userList{
+  height: 50px;
+  color: gray;
+  font-size: 10px;
+}
+
+#nickname{
+  width: 30%;
+  margin: 0 auto;
+  margin-top: 30px;
 }
   /*# sourceMappingURL=main.css.map */
