@@ -28,18 +28,21 @@
 		</div>
 
 		<section class="userList">
+
 			<h4>Users online</h4>
 			<ul id='users'>
-				<li v-for='user in users'>{{ user.name }}</li>
+				<li v-for='user in users' id="onlineUser">
+					{{ nickname }}
+				</li>
 			</ul>
 		</section>
 
 		<section class="messages">
 			
 			<ul id="messages">
-				<!-- render a new message component for every message -->
 				<newmessage v-for="message in messages" :msg="message"></newmessage>
 			</ul>
+	
 		</section>
 		<section class="form-container">
 			
@@ -47,6 +50,7 @@
 			<form>
 				<label for="message">Type your message here...</label>
 				<textarea v-model="message" class="message" type="text" autocomplete="off" id="textarea"></textarea>
+				<!-- add some fun emojis to your message! -->
 				<button class="emoji" @click.prevent="characterEmoji" data-value="🍄">🍄</button>
 				<button class="emoji" @click.prevent="characterEmoji" data-value="👾">👾</button>
 				<button class="emoji" @click.prevent="characterEmoji" data-value="🕹️">🕹️</button>

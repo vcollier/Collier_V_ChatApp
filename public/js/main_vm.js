@@ -13,26 +13,32 @@ function showDisconnectMessage() {
 
 }
 
+
 function appendMessage(message) {
     vm.messages.push(message);
-    document.querySelector('.message-audio').play();
+
 }
 
 function appendUser(user){
     
     vm.users.push(user);
-};
+}
+
 
 const vm = new Vue({
     data: {
         socketID: "",
         message: "",
         nickname: "",
-        users: [],
-        messages: []
+        users: [
+            { name: ''}
+        ],
+        messages: [],
+
     },
 
     methods: {
+
         characterEmoji(e){
             let emoji = e.target.dataset.value;
             this.message = this.message + emoji;
@@ -41,16 +47,16 @@ const vm = new Vue({
         disbatchMessage() {
             console.log('handle emit message');
 
+
             socket.emit('chat_message', {
                 content: this.message,
                 name: this.nickname || "anonymous"
             })
             this.message = "";
 
-        }
-        
-    },
+        },
 
+    }, 
 
     mounted: function() {
         console.log('vue is done mounting');
@@ -69,11 +75,13 @@ socket.addEventListener('new_message', appendMessage);
 socket.addEventListener('newUser', appendUser);
 
 
-const welcome     = document.querySelector('.welcome'),
+const welcome    = document.querySelector('.welcome'),
       goButton   = document.querySelector('.goButton');
 
       goButton.addEventListener('click', function(){
         
             welcome.classList.add('hide');
+
+            
       });
 
