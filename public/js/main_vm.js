@@ -31,11 +31,9 @@ const vm = new Vue({
         message: "",
         nickname: "",
         users: [
-            { name: ''},
-            { name: ''},
-            { name: ''},
             { name: ''}
         ],
+
         messages: [],
 
     },
