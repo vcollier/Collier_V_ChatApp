@@ -13,11 +13,12 @@ function showDisconnectMessage() {
 
 }
 
-// const messageSound = new Audio('../audio/game-sound.mp3');
+const messageSound = new Audio ('../audio/game-sound.mp3');
+
 
 function appendMessage(message) {
     vm.messages.push(message);
-    // messageSound.play();
+    messageSound.play();
 
 }
 
@@ -59,7 +60,6 @@ const vm = new Vue({
         },
 
     }, 
-    
 
     mounted: function() {
         console.log('vue is done mounting');
@@ -84,6 +84,7 @@ const welcome    = document.querySelector('.welcome'),
       goButton.addEventListener('click', function(){
         
             welcome.classList.add('hide');
+
             
       });
 
