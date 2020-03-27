@@ -17,6 +17,21 @@ This project's objective was a to create a unique ChatApp using Socket.io and Vu
 * CSS
 * Vue.js
 
+## Installation
+- Clone this repository
+
+- git clone https://github.com/vcollier/Collier_V_ChatApp
+
+- Go into the repository
+
+- cd Collier_V_ChatApp
+
+- npm install into the terminal
+
+- npm start into the terminal
+
+The site will now be live on your localhost! (3030)
+
 ## Authors
 
 * Victoria Collier - Designer and Developer
