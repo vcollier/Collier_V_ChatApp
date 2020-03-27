@@ -22,7 +22,17 @@ io.attach(server);
 
 io.on('connection', function(socket) { // socket is your connection
     console.log('a user has connected');
-    socket.emit('connected', {sID: socket.id, message: "new connection"});
+    io.emit('connected', {sID: socket.id, message: "new connection"});
+    
+
+    socket.on('userJoined', function(user){
+        console.log(user+ 'has joined the chat');
+        io.emit('newUser', user);
+    })
+
+    socket.on('typing', (data) => {
+        socket.broadcast.emit('typing', (data))
+      })
 
     socket.on('chat_message', function(msg) {
         console.log(msg); 
