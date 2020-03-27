@@ -13,11 +13,11 @@ function showDisconnectMessage() {
 
 }
 
-const messageSound = new Audio('../audio/game-sound.mp3');
+// const messageSound = new Audio('../audio/game-sound.mp3');
 
 function appendMessage(message) {
     vm.messages.push(message);
-    messageSound.play();
+    // messageSound.play();
 
 }
 
@@ -25,22 +25,6 @@ function appendUser(user){
     vm.users.push(user);
 }
 
-function typingstopped(){
-    typing = false;
-    socket.emit(notTyping);
-  }
-  
-  function onKeyDown(){
-    if(typing == false) {
-      typing = true
-      socket.emit(typing);
-      time = setTimeout(typingstopped, 500);
-    } else {
-      clear(time);
-      time = setTimeout(typingstopped, 500);
-    }
-  
-  }
 
 const vm = new Vue({
     data: {
@@ -52,7 +36,6 @@ const vm = new Vue({
         ],
 
         messages: [],
-        typing: false
 
     },
 
@@ -93,7 +76,6 @@ socket.addEventListener('connected', setUserId);
 socket.addEventListener('disconnect', showDisconnectMessage);
 socket.addEventListener('new_message', appendMessage);
 socket.addEventListener('newUser', appendUser);
-socket.addEventListener('keypress', onKeyDown);
 
 
 const welcome    = document.querySelector('.welcome'),

@@ -30,10 +30,6 @@ io.on('connection', function(socket) { // socket is your connection
         io.emit('newUser', user);
     })
 
-    socket.on('typing', (data) => {
-        socket.broadcast.emit('typing', (data))
-      })
-
     socket.on('chat_message', function(msg) {
         console.log(msg); 
         io.emit('new_message', { id: socket.id, message: msg})
